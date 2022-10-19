@@ -9,7 +9,9 @@ const CoinFormContainer = () => {
   const [coinData, setCoinData] = useState([]);
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:4000/api/coin");
+    const response = await axios.get(
+      "https://coin-add-backend.herokuapp.com/api/coin"
+    );
     setCoinData(response?.data?.result);
   };
 
@@ -20,10 +22,13 @@ const CoinFormContainer = () => {
   const Submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/api/coin", {
-        coinName,
-        coinPrice,
-      });
+      const response = await axios.post(
+        "https://coin-add-backend.herokuapp.com/api/coin",
+        {
+          coinName,
+          coinPrice,
+        }
+      );
       if (response.status === 200) {
         swal.fire("Success", response?.data?.message, "success");
         fetchData();
