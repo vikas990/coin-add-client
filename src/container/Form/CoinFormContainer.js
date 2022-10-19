@@ -2,28 +2,38 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert2";
 import CoinForm from "../../components/Form/CoinForm";
+import io from "socket.io-client";
+
+const ENDPOINT = "http://localhost:4000";
 
 const CoinFormContainer = () => {
+  // States for storing the values
   const [coinName, setCoinName] = useState("");
   const [coinPrice, setCoinPrice] = useState("");
   const [coinData, setCoinData] = useState([]);
-
+  // Data Fetching function
   const fetchData = async () => {
     const response = await axios.get(
-      "https://coin-add-backend.herokuapp.com/api/coin"
+      `${process.env.REACT_APP_PUBLIC_URL}/coin`
     );
     setCoinData(response?.data?.result);
   };
 
+  // Running Data Fetching function on first load
   useEffect(() => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    io(ENDPOINT);
+  }, []);
+
+  // submitting data to the backend
   const Submit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://coin-add-backend.herokuapp.com/api/coin",
+        `${process.env.REACT_APP_PUBLIC_URL}/coin`,
         {
           coinName,
           coinPrice,
