@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ********************* Form Styles ************************ */
+
+.input {
+  width: 15%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.btn {
+  width: 9%;
+  background-color: #ff7f27;
+  color: black;
+  margin-top: 1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.btn:hover {
+  color: #ff7f27;
+  background-color: white;
+}
+
+/* ********************* Table Styles ************************ */
+
+.coinTable {
+  border-collapse: collapse;
+  border: 0.1rem solid black;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+}
+
+th,
+td {
+  border: 0.1rem solid black;
+  padding: 1rem;
+}
